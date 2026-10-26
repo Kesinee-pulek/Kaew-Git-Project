@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run build`: production build
 - `npm run start`: serve the production build
 - `npm run lint`: ESLint (flat config with `eslint-config-next` core-web-vitals + typescript rules)
-- `npx tsc --noEmit`: type-check (there is no dedicated script)
+- `npx next typegen && npx tsc --noEmit`: type-check (there is no dedicated script). Run `typegen` first because the global `LayoutProps`/`PageProps` types are generated into `.next/types`, so a fresh clone fails `tsc` without it.
 
 No test framework is set up yet.
 
@@ -29,4 +29,4 @@ Next.js 16.4 (App Router), React 19.3, TypeScript (strict), Tailwind CSS v4. Thi
   - Before changing caching or data-fetching code, read `node_modules/next/dist/docs/01-app/01-getting-started/08-caching.md` and `.../03-api-reference/05-config/01-next-config-js/cacheComponents.md`.
 - **Tailwind v4 runs through a Turbopack loader**, not PostCSS. There is no `postcss.config` or `tailwind.config`. `next.config.ts` routes `*.css` through `@tailwindcss/turbopack`. Theme tokens live in `globals.css` via `@theme inline`, and light/dark colors are CSS variables (`--background`, `--foreground`) switched by `prefers-color-scheme`.
 - **Typed route props**: the root layout uses the global `LayoutProps<"/">` helper type (generated into `.next/types`), not hand-written prop types. Use `LayoutProps`/`PageProps` the same way in new routes.
-- Fonts: Geist and Geist Mono load via `next/font/google` in the root layout and are exposed as `--font-geist-sans`/`--font-geist-mono`. They map to Tailwind's `font-sans`/`font-mono`.
+- Fonts: Geist, Geist Mono, and Noto Sans Thai load via `next/font/google` in the root layout and are exposed as `--font-geist-sans`/`--font-geist-mono`/`--font-noto-thai`. `font-sans` maps to Geist with Noto Sans Thai as the fallback for Thai glyphs, and `font-mono` maps to Geist Mono. `<body>` carries `font-sans`. Don't add a plain `body { font-family }` rule to `globals.css`: unlayered CSS beats Tailwind's layered utilities and would override it.
