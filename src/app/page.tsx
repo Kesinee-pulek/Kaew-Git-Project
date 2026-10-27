@@ -11,7 +11,7 @@ export default async function Home() {
             มณฑลเสฉวน · ประเทศจีน
           </p>
           <h1 className="mt-4 max-w-2xl text-4xl font-bold leading-tight sm:text-5xl">
-            เที่ยวเฉิงตู เมืองแห่งแพนด้าและหม้อไฟ 🐼🍲
+            เมืองแพนด้า อากาศดี มีหม้อไฟ 🐼🍲
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-white/90">
             สัมผัสเมืองเก่าแก่กว่า 2,000 ปี ที่ผสมผสานธรรมชาติ ประวัติศาสตร์ และอาหารรสจัดจ้านไว้ในที่เดียว
