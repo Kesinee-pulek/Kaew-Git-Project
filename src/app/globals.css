@@ -3,13 +3,21 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --brand: #15803d;
+  --brand: #74045f;
+  /* Chart mark color, validated against the page surface per mode */
+  --chart-bar: #8e1c7a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-brand: var(--brand);
+  --color-chart-bar: var(--chart-bar);
+  /* PEA purple, fixed in both modes (used on hero and logo backgrounds) */
+  --color-pea-900: #4b0a41;
+  --color-pea-700: #74045f;
+  --color-pea-500: #9b2c86;
+  --color-pea-gold: #f5b301;
   --font-sans: var(--font-geist-sans), var(--font-noto-thai), sans-serif;
   --font-mono: var(--font-geist-mono);
 }
@@ -18,7 +26,8 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
-    --brand: #4ade80;
+    --brand: #e9a3dc;
+    --chart-bar: #c75bb2;
   }
 }
 

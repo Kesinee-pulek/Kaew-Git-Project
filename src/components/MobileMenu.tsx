@@ -13,7 +13,7 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
   };
 
   return (
-    <details ref={detailsRef} className="relative md:hidden">
+    <details ref={detailsRef} className="relative lg:hidden">
       <summary className="cursor-pointer list-none rounded-md px-3 py-2 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/10 [&::-webkit-details-marker]:hidden">
         เมนู ☰
       </summary>

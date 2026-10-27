@@ -20,8 +20,9 @@ const notoSansThai = Noto_Sans_Thai({
 });
 
 export const metadata: Metadata = {
-  title: "Chengdu Travel | เที่ยวเฉิงตู ประเทศจีน",
-  description: "คู่มือท่องเที่ยวเฉิงตู มณฑลเสฉวน ประเทศจีน สถานที่เที่ยว อาหาร และวัฒนธรรม",
+  title: "ศูนย์อบรมออนไลน์ กฟภ. | การไฟฟ้าส่วนภูมิภาค",
+  description:
+    "หลักสูตรอบรมออนไลน์ผ่านวิดีโอของการไฟฟ้าส่วนภูมิภาค สำหรับพนักงาน กฟภ. และบุคคลทั่วไป พร้อมใบประกาศนียบัตรที่ตรวจสอบได้",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
