@@ -1,6 +1,12 @@
+import Link from "next/link";
 import PeaLogo from "@/components/PeaLogo";
+import { navLinks } from "@/components/navLinks";
+import { aboutContent } from "@/content/about";
+import { formatThaiPhone } from "@/lib/format";
 
 export default function SiteFooter() {
+  const { contact } = aboutContent;
+
   return (
     <footer
       id="contact"
@@ -25,30 +31,35 @@ export default function SiteFooter() {
         <div>
           <p className="font-semibold">ลิงก์ด่วน</p>
           <ul className="mt-3 space-y-2 text-sm text-foreground/70">
-            <li><a href="#stats" className="hover:text-brand">ผลการดำเนินงาน</a></li>
-            <li><a href="#categories" className="hover:text-brand">หมวดหลักสูตร</a></li>
-            <li><a href="#courses" className="hover:text-brand">หลักสูตรยอดนิยม</a></li>
-            <li><a href="#how" className="hover:text-brand">ขั้นตอนการเรียน</a></li>
+            {navLinks
+              .filter((link) => link.href !== "#contact")
+              .map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="hover:text-brand">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
           </ul>
         </div>
 
         <div>
           <p className="font-semibold">ติดต่อเรา</p>
           <ul className="mt-3 space-y-2 text-sm text-foreground/70">
-            <li>200 ถนนงามวงศ์วาน แขวงลาดยาว เขตจตุจักร กรุงเทพฯ 10900</li>
+            <li>{contact.address}</li>
             <li>
               โทร:{" "}
-              <a href="tel:021234567" className="hover:text-brand">
-                02-123-4567
+              <a href={`tel:${contact.phone}`} className="hover:text-brand">
+                {formatThaiPhone(contact.phone)}
               </a>
             </li>
             <li>
               อีเมล:{" "}
-              <a href="mailto:training@example.com" className="hover:text-brand">
-                training@example.com
+              <a href={`mailto:${contact.email}`} className="hover:text-brand">
+                {contact.email}
               </a>
             </li>
-            <li>เวลาทำการ: จันทร์–ศุกร์ 08:30–16:30</li>
+            <li>เวลาทำการ: {contact.hours}</li>
           </ul>
         </div>
       </div>

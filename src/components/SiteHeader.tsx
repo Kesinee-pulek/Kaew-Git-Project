@@ -1,14 +1,8 @@
 import Link from "next/link";
+import MainNav from "@/components/MainNav";
 import MobileMenu from "@/components/MobileMenu";
 import PeaLogo from "@/components/PeaLogo";
-
-const navLinks = [
-  { href: "#stats", label: "ผลการดำเนินงาน" },
-  { href: "#categories", label: "หมวดหลักสูตร" },
-  { href: "#courses", label: "หลักสูตรยอดนิยม" },
-  { href: "#how", label: "ขั้นตอนการเรียน" },
-  { href: "#contact", label: "ติดต่อเรา" },
-];
+import { navLinks } from "@/components/navLinks";
 
 export default function SiteHeader() {
   return (
@@ -24,18 +18,7 @@ export default function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden gap-6 text-sm font-medium lg:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-foreground/70 transition-colors hover:text-brand"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
+        <MainNav links={navLinks} />
         <MobileMenu links={navLinks} />
       </div>
     </header>

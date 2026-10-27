@@ -12,7 +12,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run lint`: ESLint (flat config with `eslint-config-next` core-web-vitals + typescript rules)
 - `npx next typegen && npx tsc --noEmit`: type-check (there is no dedicated script). Run `typegen` first because the global `LayoutProps`/`PageProps` types are generated into `.next/types`, so a fresh clone fails `tsc` without it.
 
-No test framework is set up yet.
+- `npm test`: Vitest unit tests (`src/**/*.test.ts`)
+- `npm run test:e2e`: Playwright browser tests (`e2e/`). Uses the installed Microsoft Edge (`channel: "msedge"`) and reuses a dev server already on :3000. Node is installed on Windows only, so from WSL run these through `cmd.exe /c "..."`.
 
 ## Stack
 
