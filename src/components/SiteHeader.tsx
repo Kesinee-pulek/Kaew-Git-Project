@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Suspense } from "react";
+import AccountNav from "@/components/AccountNav";
 import MainNav from "@/components/MainNav";
 import MobileMenu from "@/components/MobileMenu";
 import PeaLogo from "@/components/PeaLogo";
@@ -18,8 +20,18 @@ export default function SiteHeader() {
           </span>
         </Link>
 
-        <MainNav links={navLinks} />
-        <MobileMenu links={navLinks} />
+        <div className="flex items-center gap-8">
+          <MainNav links={navLinks} />
+          {/* Reads the session from cookies, so it streams in after the static header shell. */}
+          <Suspense fallback={null}>
+            <AccountNav variant="desktop" />
+          </Suspense>
+        </div>
+        <MobileMenu links={navLinks}>
+          <Suspense fallback={null}>
+            <AccountNav variant="mobile" />
+          </Suspense>
+        </MobileMenu>
       </div>
     </header>
   );

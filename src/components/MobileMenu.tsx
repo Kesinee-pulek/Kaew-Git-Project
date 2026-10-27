@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef } from "react";
+import { useRef, type ReactNode } from "react";
 import { isCurrentPage, type NavLink } from "@/components/navLinks";
 
-export default function MobileMenu({ links }: { links: NavLink[] }) {
+export default function MobileMenu({ links, children }: { links: NavLink[]; children?: ReactNode }) {
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const pathname = usePathname();
 
@@ -37,6 +37,7 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
             </Link>
           );
         })}
+        {children}
       </nav>
     </details>
   );
